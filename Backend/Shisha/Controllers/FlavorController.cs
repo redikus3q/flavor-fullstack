@@ -40,7 +40,7 @@ namespace Shisha.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateFlavor(FlavorDTO flavor)
         {
             Flavor newFlavor = new Flavor();
@@ -59,7 +59,7 @@ namespace Shisha.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteFlavor(int id)
         {
             var flavor = await _repository.Flavor.GetByIdAsync(id);
@@ -77,7 +77,7 @@ namespace Shisha.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditFlavor(int id, FlavorDTO flavor)
         {
             Flavor newFlavor = await _repository.Flavor.GetByIdAsync(id);
