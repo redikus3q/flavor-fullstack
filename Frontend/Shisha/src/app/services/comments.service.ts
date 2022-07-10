@@ -20,4 +20,8 @@ export class CommentsService {
   public getComments(id: number): Observable<Comment[]>{
     return this.http.get<any>(`${this.url}/${id}`).pipe(map(response => response.comments));
   }
+
+  public deleteComment(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.url}/${id}`);
+  }
 }

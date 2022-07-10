@@ -76,13 +76,31 @@ namespace Shisha.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> DeleteComment(int id)
         {
+            var user = HttpContext.User;
+            int userId;
+            bool successId = int.TryParse(_userManager.GetUserId(user), out userId);
+            bool isAdmin = user.IsInRole("Admin");
+
+            if (!successId)
+            {
+                return BadRequest("User's ID is not proper.");
+            }
+
             var comment = await _repository.Comment.GetByIdAsync(id);
 
             if (comment == null)
             {
                 return NotFound("The comment doesn't exist.");
+            }
+
+            int commentUserId = comment.UserId;
+
+            if (commentUserId != userId && isAdmin == false)
+            {
+                return BadRequest("Cannot delete another user's comment!");
             }
 
             _repository.Comment.Delete(comment);

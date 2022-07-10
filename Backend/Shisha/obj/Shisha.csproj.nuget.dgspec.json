@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andu\\Desktop\\Shisha\\Backend\\Shisha\\Shisha.csproj": {}
+    "C:\\Users\\Andu\\Desktop\\uni\\zzgithub\\flavor-fullstack\\Backend\\Shisha\\Shisha.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andu\\Desktop\\Shisha\\Backend\\Shisha\\Shisha.csproj": {
+    "C:\\Users\\Andu\\Desktop\\uni\\zzgithub\\flavor-fullstack\\Backend\\Shisha\\Shisha.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andu\\Desktop\\Shisha\\Backend\\Shisha\\Shisha.csproj",
+        "projectUniqueName": "C:\\Users\\Andu\\Desktop\\uni\\zzgithub\\flavor-fullstack\\Backend\\Shisha\\Shisha.csproj",
         "projectName": "Shisha",
-        "projectPath": "C:\\Users\\Andu\\Desktop\\Shisha\\Backend\\Shisha\\Shisha.csproj",
+        "projectPath": "C:\\Users\\Andu\\Desktop\\uni\\zzgithub\\flavor-fullstack\\Backend\\Shisha\\Shisha.csproj",
         "packagesPath": "C:\\Users\\Andu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andu\\Desktop\\Shisha\\Backend\\Shisha\\obj\\",
+        "outputPath": "C:\\Users\\Andu\\Desktop\\uni\\zzgithub\\flavor-fullstack\\Backend\\Shisha\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Andu\\AppData\\Roaming\\NuGet\\NuGet.Config",

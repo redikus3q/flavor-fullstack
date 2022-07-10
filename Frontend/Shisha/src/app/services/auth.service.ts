@@ -25,6 +25,10 @@ export class AuthService {
     return this.http.get<any>(this.url + "/getUser");
   }
 
+  public isAdmin(): Observable<any>{
+    return this.http.get<any>(this.url + "/isAdmin");
+  }
+
   public checkToken(token: any): Observable<boolean>{
     const body = {
       "token": token

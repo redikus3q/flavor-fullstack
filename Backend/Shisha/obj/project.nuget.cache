@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tUzm6rswkHMOwQrX4pDSQ+ZkE3O/53zsq/WxJ2fYjwkx1ttAZkDPzkPIWJ4buyqMRwa24LMK8V2HR91cvjX2xw==",
+  "dgSpecHash": "0P2DRbxeEmg/PFTJLE6EjohLwy13DenB8KEpzLtfHSe5MOJKMeR0Qbcx98wrJ8Vy61MXbGFf/A9HKGmF0xlLKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andu\\Desktop\\Shisha\\Backend\\Shisha\\Shisha.csproj",
+  "projectFilePath": "C:\\Users\\Andu\\Desktop\\uni\\zzgithub\\flavor-fullstack\\Backend\\Shisha\\Shisha.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Andu\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.7\\microsoft.aspnet.cors.5.2.7.nupkg.sha512",

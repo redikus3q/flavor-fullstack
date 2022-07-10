@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { CommentsService } from 'src/app/services/comments.service';
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-comments',
@@ -14,9 +14,10 @@ export class CommentsComponent implements OnInit, OnDestroy {
 
   public subscription: Subscription | any;
   public comments: Comment[] | any;
-  public users: any;
+  public isAdmin: boolean = false;
+  public userId: number | undefined;
   public focused : boolean;
-  public id: number | undefined;
+  public flavorId: number | undefined;
   public token: string | undefined;
   public commentForm: FormGroup = new FormGroup({
     text: new FormControl(''),
@@ -26,7 +27,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private commentsService: CommentsService,
-    private usersService: UsersService,
+    private authService: AuthService,
     private router: Router
   ) {
     this.focused = false;
@@ -34,12 +35,18 @@ export class CommentsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     var auxtoken = localStorage.getItem('Token');
-    if(auxtoken != undefined){
+    if(auxtoken != undefined && auxtoken != ""){
       this.token = auxtoken;
+      this.authService.isAdmin().subscribe(result => {
+        this.isAdmin = result;
+      });
+      this.authService.getUser().subscribe(result => {
+        this.userId = result.id;
+      })
     }
     this.subscription = this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      this.getAllComments(this.id);
+      this.flavorId = +params['id'];
+      this.getAllComments(this.flavorId);
     });
   }
 
@@ -59,17 +66,23 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   public postComment(): void {
-    this.commentForm.patchValue({flavorId: this.id})
+    this.commentForm.patchValue({flavorId: this.flavorId})
     const body = this.commentForm.value;
     console.log(body);
     var response = this.commentsService.postComment(body).subscribe(result => {
       this.focused = false;
-      this.getAllComments(this.id);
+      this.getAllComments(this.flavorId);
     });
   }
 
   public goToLogin(): void{
     this.router.navigate(['auth/login']);
+  }
+
+  public deleteComment(commentId:number): void{
+    var response = this.commentsService.deleteComment(commentId).subscribe(result => {
+      this.getAllComments(this.flavorId);
+    });
   }
 
 }

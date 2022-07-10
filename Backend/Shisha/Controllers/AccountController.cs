@@ -65,7 +65,7 @@ namespace Shisha.Controllers
 
         [HttpPost("checkToken")]
         [AllowAnonymous]
-        public async Task<IActionResult> checkToken([FromBody] SessionTokenDTO token)
+        public async Task<IActionResult> CheckToken([FromBody] SessionTokenDTO token)
         {
             var response = await _userService.FindToken(token.Token);
 
@@ -73,11 +73,20 @@ namespace Shisha.Controllers
         }
 
         [HttpGet("getUser")]
-        //[AllowAnonymous]
-        public async Task<IActionResult> getUser()
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUser()
         {
             var response = await _userManager.GetUserAsync(HttpContext.User);
             return Ok(response);
+        }
+
+        [HttpGet("isAdmin")]
+        [Authorize(Roles = "User,Admin")]
+        public IActionResult IsAdmin()
+        {
+            var user = HttpContext.User;
+            bool isAdmin = user.IsInRole("Admin");
+            return Ok(isAdmin);
         }
     }
 }

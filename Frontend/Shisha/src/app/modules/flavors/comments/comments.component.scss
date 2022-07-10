@@ -51,6 +51,7 @@
     margin-bottom: 15px;
     margin-left: 5px;
     color:rgb(210, 210, 210);
+    margin-top: 7px;
 }
 
 .comment-header{
@@ -92,7 +93,7 @@ button {
     margin-right: 5px;
 }
 
-h3 {
+h3, h4 {
     margin-top: -16px;
 }
 
@@ -103,4 +104,23 @@ a {
 a:hover {
     color: white;
     cursor: pointer;
+}
+
+.delete-icon {
+    font-size: 19px;
+    margin-top: -15px;
+    margin-right: 6px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    color: rgb(158, 158, 158);
+}
+
+.delete-icon:hover {
+    font-size: 24px;
+    transform: translate(-2px, -2px);
+    color: white;
+}
+
+.comment-misc {
+    display: flex;
 }

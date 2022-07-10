@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   public initRefresh: boolean = false;
   public loading: boolean = false;
   public fail: boolean = false;
+  public artificialLag = 100;
 
   constructor(
     private router: Router,
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.fail = false;
             this.loading = false;
             this.router.navigate(['/flavors']);
-          }, 1000);
+          }, this.artificialLag);
         },
         error: error => {
           var form = document.getElementsByClassName("form-section")[0];
