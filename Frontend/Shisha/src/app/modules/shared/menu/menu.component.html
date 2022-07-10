@@ -15,9 +15,14 @@
         </button>
     </div>
     <ng-template #elseblock><div class="right-nav">
-        <h2 class="logged-in" *ngIf="checkToken()">
-            You're logged in as <a>{{user?.firstName}} {{user?.lastName}}</a>
-        </h2>
+        <div class = "logged-in-div">
+            <h2 class="logged-in-h2" *ngIf="checkToken()">
+                You're logged in as
+            </h2>
+            <a class="logged-in-name">
+                {{user?.firstName}} {{user?.lastName}}
+            </a>
+        </div>
         <button class="btn auth-btn log-out" (click)="logOut()" *ngIf="checkToken()">
             Log out
         </button>

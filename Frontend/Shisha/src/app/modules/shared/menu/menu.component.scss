@@ -1,9 +1,10 @@
 .navbar {
-    width: 100%;
+    width: 100vw;
     background-color: #313131;
     box-shadow: inset 0px -8px 11px -8px #000000;
     display: flex;
     justify-content: space-between;
+    height: 10vh;
 }
 
 ng-template {
@@ -28,7 +29,7 @@ ng-template {
 }
 
 .center-img {
-    height: 5vw;
+    height: 8vh;
 }
 
 .btn {
@@ -68,26 +69,42 @@ ng-template {
     line-height: 5px;
 }
 
-.logged-in {
+.logged-in-h2 {
     color: rgb(195, 195, 195);
     font-size: 18px;
-    margin-top: 6px;
+    margin: 0px 20px 4px 0px;
+    font-weight: 500;
+    width: 10vw;
+}
+
+.logged-in-name {
+    color: white;
+    font-size: 18px;
     font-weight: 500;
     width: 10vw;
     margin-right: 20px;
 }
 
-a {
-    color: white;
-}
-
-a:hover {
+.logged-in-name:hover {
     color: rgb(195, 195, 195);
     cursor: pointer;
 }
 
 .log-out {
     white-space: nowrap;
+}
+
+.logged-in-div {
+    width: max-content;
+}
+
+@media only screen and (max-width: 1550px){
+    .logged-in-h2 {
+        display: none;
+    }
+    .logged-in-name {
+        margin-right: 15px;
+    }
 }
 
 @media only screen and (max-width: 1500px){
@@ -97,7 +114,6 @@ a:hover {
         line-height: 15px;
     }
     .auth-btn {
-        font-size: 8px;
         padding: 8px 12px;
         font-size: 10px;
         line-height: 5px;
@@ -108,5 +124,46 @@ a:hover {
         margin-top: 6px;
         font-weight: 500;
         margin-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    .btn{
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    .right-nav {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .right-nav .btn {
+        margin: 6px 0px 6px 0px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .btn{
+        font-size: 8px;
+        padding: 8px 8px;
+        line-height: 8px;
+    }
+    .auth-btn {
+        font-size: 6px;
+        padding: 6px 6px;
+        line-height: 5px;
+        white-space: nowrap;
+    }
+    .logged-in {
+        font-size: 10px;
+        margin-top: 4px;
+        font-weight: 500;
+        margin-right: 20px;
+    }
+    .center-img {
+        height: 7vh;
+    }
+    .logged-in-name {
+        font-size: 10px;
+        margin-right: 0px;
     }
 }

@@ -120,3 +120,9 @@ $translate-distance: 3.5px;
 .form-section {
     --animate-duration: 0.4s;
 }
+
+@media only screen and (max-width: 1400px){
+    .form-section, form {
+        width: 280px;
+    }
+}
