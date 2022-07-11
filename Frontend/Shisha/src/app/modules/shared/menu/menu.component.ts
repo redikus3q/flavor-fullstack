@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
   public user : any;
+  private subscription : Subscription | any;
 
   constructor(
     private router: Router,
@@ -19,6 +20,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+  }
+
+  ngOnDestroy(): void { 
+    this.subscription.unsubscribe();
   }
 
   goToFlavors(): void {
@@ -45,14 +50,18 @@ export class MenuComponent implements OnInit {
   }
 
   getUser(): void {
-    this.authService.getUser().subscribe(result => {
+    this.subscription = this.authService.getUser().subscribe(result => {
       this.user = result;
     });
   }
 
-  logOut(): void{
+  logOut(): void {
     localStorage.setItem("Token", "");
     location.reload();
+  }
+
+  goToProfile(): void {
+    this.router.navigate(['/user/profile']);
   }
 
 }

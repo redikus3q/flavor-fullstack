@@ -9,6 +9,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AboutusModule } from './modules/aboutus/aboutus.module';
 import { HttpReqInterceptor } from './http-requests.interceptor';
 import { AuthService } from './services/auth.service';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
-    AboutusModule
+    AboutusModule,
+    UserModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpReqInterceptor, multi: true, deps: [AuthService] }

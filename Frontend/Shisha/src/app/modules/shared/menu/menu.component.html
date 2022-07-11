@@ -19,7 +19,7 @@
             <h2 class="logged-in-h2" *ngIf="checkToken()">
                 You're logged in as
             </h2>
-            <a class="logged-in-name">
+            <a class="logged-in-name" (click)="goToProfile()">
                 {{user?.firstName}} {{user?.lastName}}
             </a>
         </div>
