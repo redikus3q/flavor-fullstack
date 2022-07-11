@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit, OnDestroy {
+export class MenuComponent implements OnInit {
 
   public user : any;
   private subscription : Subscription | any;
@@ -19,11 +19,13 @@ export class MenuComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.getUser();
-  }
-
-  ngOnDestroy(): void { 
-    this.subscription.unsubscribe();
+    var username = localStorage.getItem("Username");
+    if(username == undefined || username == ""){
+      this.user = undefined;
+    }
+    else {
+      this.user = localStorage.getItem("Username");
+    }
   }
 
   goToFlavors(): void {
@@ -49,14 +51,9 @@ export class MenuComponent implements OnInit, OnDestroy {
     return true;
   }
 
-  getUser(): void {
-    this.subscription = this.authService.getUser().subscribe(result => {
-      this.user = result;
-    });
-  }
-
   logOut(): void {
     localStorage.setItem("Token", "");
+    localStorage.removeItem("Username");
     location.reload();
   }
 

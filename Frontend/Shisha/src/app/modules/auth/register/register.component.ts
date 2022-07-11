@@ -46,7 +46,11 @@ export class RegisterComponent implements OnInit {
 
       var response = this.authService.register(body).subscribe({
         next: result => {
+          this.authService.getUser().subscribe(user => {
+            localStorage.setItem('Username', this.registerForm.value.firstName + " " + this.registerForm.value.lastName);
+          });
           setTimeout(() => {
+            this.dataService.changeRefresh(true);
             this.fail = false;
             this.loading = false;
             this.router.navigate(['/flavors']);

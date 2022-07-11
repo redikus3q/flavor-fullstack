@@ -20,7 +20,7 @@
                 You're logged in as
             </h2>
             <a class="logged-in-name" (click)="goToProfile()">
-                {{user?.firstName}} {{user?.lastName}}
+                {{user}}
             </a>
         </div>
         <button class="btn auth-btn log-out" (click)="logOut()" *ngIf="checkToken()">

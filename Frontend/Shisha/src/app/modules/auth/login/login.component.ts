@@ -44,6 +44,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       var response = this.authService.login(body).subscribe({
         next: result => {
           localStorage.setItem('Token', result['token']);
+          this.authService.getUser().subscribe(user => {
+            localStorage.setItem('Username', user.firstName + " " + user.lastName);
+          });
           setTimeout(() => {
             this.dataService.changeRefresh(true);
             this.fail = false;

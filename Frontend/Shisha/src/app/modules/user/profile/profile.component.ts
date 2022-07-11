@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnInit {
 
   public user : any;
   private subscription: Subscription | any;
@@ -20,17 +20,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.getUser();
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
-  getUser(): void {
-    this.subscription = this.authService.getUser().subscribe(result => {
-      this.user = result;
-    });
+    var username = localStorage.getItem("Username");
+    if(username == undefined || username == ""){
+      this.user = undefined;
+    }
+    else {
+      this.user = localStorage.getItem("Username");
+    }
   }
 
 }
