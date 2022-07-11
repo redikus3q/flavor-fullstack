@@ -1,3 +1,5 @@
+@use '../../../../colors' as colors;
+
 .container {
     display: flex;
     align-items: center;
@@ -15,8 +17,8 @@
     margin-top: 40px;
     margin: 20px;
     padding: 14px 10px 14px 10px;
-    background-color: #313131;
-    box-shadow: 0px 0px 19px 9px rgba(0,0,0,0.85);
+    background-color: colors.$background-color-card;
+    box-shadow: colors.$shadow-card;
     font-family: Arial;
 }
 

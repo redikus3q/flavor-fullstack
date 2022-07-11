@@ -1,9 +1,11 @@
+@use '../../../../colors' as colors;
+
 .flavor-card {
     max-width: 400px;
-    background-color: #313131;
+    background-color: colors.$background-color-card;
     margin: 20px;
     margin-top: 50px;
-    box-shadow: 0px 0px 19px 9px rgba(0,0,0,0.85);
+    box-shadow: colors.$shadow-card;
     transition: all .3s ease-in-out;
     font-family: Arial;
     font-weight: 800;

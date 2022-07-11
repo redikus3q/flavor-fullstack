@@ -17,7 +17,7 @@ export class HighlightDirective {
   @HostListener('mouseleave') onMouseLeave() {
     this.el.nativeElement.style = `
     transform: scale(1);
-    box-shadow: 0px 0px 19px 9px rgba(0,0,0,0.85);`;
+    box-shadow: colors.$shadow-card;`;
   }
 
 }

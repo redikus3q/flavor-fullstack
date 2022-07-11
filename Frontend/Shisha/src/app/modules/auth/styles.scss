@@ -1,3 +1,5 @@
+@use '../../../colors' as colors;
+
 h1 {
     color: white;
     font-size: 30px;
@@ -38,10 +40,10 @@ button:hover {
 }
 
 .form-section {
-    background-color: #313131;
+    background-color: colors.$background-color-card;
     margin: 20px;
     margin-top: 50px;
-    box-shadow: 0px 0px 19px 9px rgba(0,0,0,0.85);
+    box-shadow: colors.$shadow-card;
     padding: 20px 20px 10px 20px;
     font-family: Arial;
     font-weight: 800;
@@ -64,8 +66,8 @@ a:hover {
 }
 
 input:-webkit-autofill{
-    box-shadow: 0 0 0 10px #313131 inset;
-    -webkit-box-shadow: 0 0 0 10px #313131 inset;
+    box-shadow: 0 0 0 10px colors.$background-color-card inset;
+    -webkit-box-shadow: 0 0 0 10px colors.$background-color-card inset;
     -webkit-text-fill-color: white;
 }
 

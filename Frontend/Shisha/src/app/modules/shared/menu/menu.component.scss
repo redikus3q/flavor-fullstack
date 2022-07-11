@@ -1,6 +1,8 @@
+@use '../../../../colors' as colors;
+
 .navbar {
     width: 100vw;
-    background-color: #313131;
+    background-color: colors.$background-color-card;
     box-shadow: inset 0px -8px 11px -8px #000000;
     display: flex;
     justify-content: space-between;
